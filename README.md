@@ -1,7 +1,10 @@
-# CLAR (Temporary Name)
-### Tool for malware code analysis based on the paper '---'
+# ClaRAnsom
 
-Repository to replicate the experiments presented in '---' by Iadarola G. et al.
+> For Clara's ransom (cit. Anonymous 🙂)
+
+### Tool for malware code analysis based on the paper 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps'
+
+Repository to replicate the experiments presented in 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps' by Iadarola G. et al.
 
 If you are using this repository, please consider [**citing our works**](#publications) (see links at the end of this README file).
 
