@@ -2,7 +2,7 @@
 
 > For Clara's ransom (cit. Anonymous 🙂)
 
-### Tool for malware code analysis based on the paper 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps'
+### Tool for Image-based Malware Analysis based on the paper 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps'
 
 Repository to replicate the experiments presented in 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps' by Iadarola G. et al. The complete experimental results are reported in the [**Experiments**](#results) section.
 
@@ -12,15 +12,7 @@ This repository contains the code to strictly replicate the experiments, but it 
 
 ## Getting Started
 
-##### Ubuntu 20.04
-
-You can run the script `install.sh` to set up all the necessary dependencies (excluding the GPU ones).
-Then, you should install all the necessary libraries with `pip`
-```
-pip install -r requirements.txt 
-```
-
-##### Run in Docker container (Suggested for experimenting on GPU)
+##### Run in Docker container ( <-- Highly suggested, and mandatory for experimenting on GPU)
 <a name="run_docker"></a>
 
 You can run TAMI in a container built upon the `tensorflow/tensorflow:latest-gpu` image. This is strongly suggested for handling dependencies related to GPU drivers, because you only need to install [Docker](https://docs.docker.com/install/) and the [NVIDIA Docker support](https://github.com/NVIDIA/nvidia-docker) to work with the Tensorflow GPU support (see also [Tensorflow Docker Requirements](https://www.tensorflow.org/install/docker) for further instructions).
@@ -33,6 +25,14 @@ cd docker
 ./run_container.sh
 ```
 Refers to [TAMI](https://github.com/Djack1010/tami) for further information and documentation on the code.
+
+##### Run in Ubuntu 20.04
+
+You can run the script `install.sh` to set up all the necessary dependencies (excluding the GPU ones).
+Then, you should install all the necessary libraries with `pip`
+```
+pip install -r requirements.txt 
+```
 
 #### Usage
 
