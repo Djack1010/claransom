@@ -4,54 +4,12 @@
 
 ### Tool for Image-based Malware Analysis based on the paper 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps'
 
-Repository to replicate the experiments presented in 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps' by Iadarola G. et al. The complete experimental results are reported in the [**Experiments**](#results) section.
+Repository to replicate the experiments presented in 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps' by Iadarola G. et al. The complete experimental results are reported in the [**Experiments**](#results) section, while followed by the [**instructions**](#gettingstarted) to install and run the tool.
 
 If you are using this repository, please consider [**citing our works**](#publications) (see links at the end of this README file).
 
 This repository contains the code to strictly replicate the experiments, but it is based on the [TAMI](https://github.com/Djack1010/tami) repository, which constitute the main repository.
 
-## Getting Started
-
-##### Run in Docker container ( <-- Highly suggested, and mandatory for experimenting on GPU)
-<a name="run_docker"></a>
-
-You can run TAMI in a container built upon the `tensorflow/tensorflow:latest-gpu` image. This is strongly suggested for handling dependencies related to GPU drivers, because you only need to install [Docker](https://docs.docker.com/install/) and the [NVIDIA Docker support](https://github.com/NVIDIA/nvidia-docker) to work with the Tensorflow GPU support (see also [Tensorflow Docker Requirements](https://www.tensorflow.org/install/docker) for further instructions).
-
-In the `docker/` folder of this repository, there is a Dockerfile which build the image and install the requirements for TAMI, and two scripts (`build.sh` and `run_container.sh`) to handle the docker operations.
-
-```
-cd docker
-./build.sh
-./run_container.sh
-```
-Refers to [TAMI](https://github.com/Djack1010/tami) for further information and documentation on the code.
-
-##### Run in Ubuntu 20.04
-
-You can run the script `install.sh` to set up all the necessary dependencies (excluding the GPU ones).
-Then, you should install all the necessary libraries with `pip`
-```
-pip install -r requirements.txt 
-```
-
-#### Usage
-
-The tool can be run with the `main.py` script.
-
-`main.py` usage:
-```
-python main.py --help
-usage: main.py [-h] -m {DATA,BASIC_CNN,BASIC_LSTM,BASIC_MLP,NEDO,VINC,VGG16} -d DATASET [-o OUTPUT_MODEL] 
-               [-l LOAD_MODEL] [-e EPOCHS] [-b BATCH_SIZE] [-i IMAGE_SIZE] 
-               [-w WEIGHTS] [--mode {train-val,train-test,test,gradcam-cati,gradcam-only}] [--exclude_top] 
-               [--caching]
-```
-
-Logs, figure and performance results are stored in `results` folders.
-Tensorboard can be used to print graph of training and validation trend.
-```
-tensorboard --logdir results/tensorboard/fit/
-```
 ## Experimental Results
 <a name="results"></a>
 
@@ -146,6 +104,50 @@ The 15726 dataset samples are split into train-validation-test set, equally bala
 The confusion matrix with regard of the `CNN` model on the test set.
 
 ![ConfusionMatrix](cm.png)
+
+## Getting Started
+<a name="gettingstarted"></a>
+
+##### Run in Docker container ( <-- Highly suggested, and mandatory for experimenting on GPU)
+<a name="run_docker"></a>
+
+You can run TAMI in a container built upon the `tensorflow/tensorflow:latest-gpu` image. This is strongly suggested for handling dependencies related to GPU drivers, because you only need to install [Docker](https://docs.docker.com/install/) and the [NVIDIA Docker support](https://github.com/NVIDIA/nvidia-docker) to work with the Tensorflow GPU support (see also [Tensorflow Docker Requirements](https://www.tensorflow.org/install/docker) for further instructions).
+
+In the `docker/` folder of this repository, there is a Dockerfile which build the image and install the requirements for TAMI, and two scripts (`build.sh` and `run_container.sh`) to handle the docker operations.
+
+```
+cd docker
+./build.sh
+./run_container.sh
+```
+Refers to [TAMI](https://github.com/Djack1010/tami) for further information and documentation on the code.
+
+##### Run in Ubuntu 20.04
+
+You can run the script `install.sh` to set up all the necessary dependencies (excluding the GPU ones).
+Then, you should install all the necessary libraries with `pip`
+```
+pip install -r requirements.txt 
+```
+
+#### Usage
+
+The tool can be run with the `main.py` script.
+
+`main.py` usage:
+```
+python main.py --help
+usage: main.py [-h] -m {DATA,BASIC_CNN,BASIC_LSTM,BASIC_MLP,NEDO,VINC,VGG16} -d DATASET [-o OUTPUT_MODEL] 
+               [-l LOAD_MODEL] [-e EPOCHS] [-b BATCH_SIZE] [-i IMAGE_SIZE] 
+               [-w WEIGHTS] [--mode {train-val,train-test,test,gradcam-cati,gradcam-only}] [--exclude_top] 
+               [--caching]
+```
+
+Logs, figure and performance results are stored in `results` folders.
+Tensorboard can be used to print graph of training and validation trend.
+```
+tensorboard --logdir results/tensorboard/fit/
+```
 
 ## Authors & References
 
