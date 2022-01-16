@@ -58,7 +58,38 @@ The methodology was tested on a dataset of 15726 malware samples, split into 25 
 
 ### The Dataset
 
-something
+The 15726 dataset samples are split into train-validation-test set, equally balanced by family samples, with a ratio of 80/10/10 of the entire dataset (respectively, 12574/1563/1589 samples). In details, the dataset contains the numbers of samples listed below:
+
+| **Malware Family**      |    Training    |  Validation   |  Test | Total |
+| :---------------------- | :------------: | :-----------: | :---: | :---: |
+|Adposhel      |   395      |   49      |   50       |    494 |
+|Agent      |   376      |   47      |   47       |    470 |
+|Allaple      |   382      |   47      |   49       |    478   |
+|Amonetize      |   397      |   49      |   51       |    497   |
+|Androm      |   400      |   50      |   50       |    500   |
+|Autorun      |   396      |   49      |   51       |    496   |
+|BrowseFox      |   394      |   49      |   50       |    493   |
+|Dinwod      |   399      |   49      |   51       |    499   |
+|Elex      |   400      |   50      |   50       |    500   |
+|Expiro      |   400      |   50      |   51       |    501   |
+|Fasong      |   400      |   50      |   50       |    500   |
+|HackKMS      |   399      |   49      |   51       |    499   |
+|Hlux      |   400      |   50      |   50       |    500   |
+|Injector      |   396      |   49      |   50       |    495   |
+|InstallCore      |   400      |   50      |   50       |    500   |
+|MultiPlug      |   399      |   49      |   51       |    499   |
+|Neoreklami      |   400      |   50      |   50       |    500   |
+|Neshta      |   397      |   49      |   51       |    497   |
+|Ransom      |   1600      |   200      |   200       |    2000   |
+|Regrun      |   388      |   48      |   49       |    485   |
+|Sality      |   399      |   49      |   51       |    499   |
+|Snarasite      |   400      |   50      |   50       |    500   |
+|Stantinko      |   400      |   50      |   50       |    500   |
+|Trusted      |   1465      |   183      |   184       |    1832   |
+|VBKrypt      |   396      |   49      |   51       |    496   |
+|Vilsel      |   396      |   49      |   51       |    496   |
+|TOTAL      |   12574      |   1563      |   1589       |    15726   |
+
 
 ### The Results
 
@@ -105,7 +136,9 @@ something
 | **Stantinko**   | CNN<br>VGG    | 0.999<br>0.999  | 1.000<br>1.000   | 0.960<br>0.980 | 0.980<br>0.990 | 0.980<br>0.990 | 0.397<br>0.657    | 0.271          |
 | **Trusted**     | CNN<br>VGG    | 0.969<br>0.966  | 0.838<br>0.817   | 0.897<br>0.897 | 0.866<br>0.855 | 0.937<br>0.936 | 0.285<br>0.470    | 0.280          |
 | **VBKrypt**     | CNN<br>VGG    | 0.999<br>0.997  | 1.000<br>0.979   | 0.980<br>0.922 | 0.990<br>0.949 | 0.990<br>0.960 | 0.383<br>0.559    | 0.396          |
-| **Vilsel**      | CNN<br>VGG    | 1.000<br>1.000  | 1.000<br>1.000   | 1.000<br>1.000 | 1.000<br>1.000 | 1.000<br>1.000 | 0.782<br>0.876    |                |
+| **Vilsel**      | CNN<br>VGG    | 1.000<br>1.000  | 1.000<br>1.000   | 1.000<br>1.000 | 1.000<br>1.000 | 1.000<br>1.000 | 0.782<br>0.876    | 0.199          |
+
+The confusion matrix with regard of the CNN model on the test set.
 
 ![ConfusionMatrix](cm.png)
 
