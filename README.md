@@ -52,6 +52,62 @@ Tensorboard can be used to print graph of training and validation trend.
 ```
 tensorboard --logdir results/tensorboard/fit/
 ```
+## Experimental Results
+
+The methodology was tested on a dataset of 15726 malware samples, split into 25 malware family and 1 trusted class. We tested two different CNN model architectures (see `models_code` folder), and we refer to them as `CNN` and `VGG16`. The `CNN` model is lighter than the `VGG16` one, it has 6 layers instead of 16.
+
+### The Dataset
+
+something
+
+### The Results
+
+#### DL models results
+
+| **DL model**            |    CNN    |  VGG16   |
+| :---------------------- | :-------: | :------: |
+| **Img size x channels** |   250x3   |  250x3   |
+| **Epochs & Batch Size** |   20&30   |  20&30   |
+| **Layers**              |     6     |    16    |
+| **Loss**                |   0.35    |  0.327   |
+| **Accuracy**            | **0.934** |   0.93   |
+| **Precision**           | **0.951** |  0.936   |
+| **Recall**              | **0.927** |  0.926   |
+| **F-Measure**           | **0.939** |  0.931   |
+| **AUC**                 |   0.989   | **0.99** |
+
+#### Malware family comparison
+
+|                 | **MODELS** | **ACCURACY** | **PRECISION** | **RECALL**  | **FM**      | **AUC**     | **Intra-SSIM** | **Inter-SSIM** |
+| :-------------- | :--------- | :----------- | :------------ | :---------- | :---------- | :---------- | :------------- | :------------- |
+| **Adposhel**    | CNN<br>VGG    | 1.000<br>0.999  | 1.000<br>0.980   | 1.000<br>1.000 | 1.000<br>0.990 | 1.000<br>1.000 | 0.503<br>0.652    | 0.387          |
+| **Agent**       | CNN<br>VGG    | 0.991<br>0.993  | 0.837<br>0.857   | 0.872<br>0.894 | 0.854<br>0.875 | 0.934<br>0.945 | 0.364<br>0.460    | 0.324          |
+| **Allaple**     | CNN<br>VGG    | 0.998<br>0.997  | 0.925<br>0.907   | 1.000<br>1.000 | 0.961<br>0.951 | 0.999<br>0.998 | 0.262<br>0.536    | 0.215          |
+| **Amonetize**   | CNN<br>VGG    | 0.998<br>0.997  | 1.000<br>0.960   | 0.941<br>0.941 | 0.970<br>0.950 | 0.971<br>0.970 | 0.710<br>0.703    | 0.271          |
+| **Androm**      | CNN<br>VGG    | 0.991<br>0.993  | 0.860<br>0.976   | 0.860<br>0.800 | 0.860<br>0.879 | 0.928<br>0.900 | 0.364<br>0.520    | 0.334          |
+| **Autorun**     | CNN<br>VGG    | 0.994<br>0.991  | 0.918<br>0.833   | 0.882<br>0.882 | 0.900<br>0.857 | 0.940<br>0.938 | 0.278<br>0.474    | 0.260          |
+| **BrowseFox**   | CNN<br>VGG    | 0.997<br>0.995  | 0.925<br>0.887   | 0.980<br>0.940 | 0.951<br>0.913 | 0.989<br>0.968 | 0.298<br>0.535    | 0.292          |
+| **Dinwod**      | CNN<br>VGG    | 1.000<br>0.999  | 1.000<br>1.000   | 1.000<br>0.980 | 1.000<br>0.990 | 1.000<br>0.990 | 0.357<br>0.624    | 0.257          |
+| **Elex**        | CNN<br>VGG    | 1.000<br>0.998  | 1.000<br>1.000   | 1.000<br>0.940 | 1.000<br>0.969 | 1.000<br>0.970 | 0.375<br>0.613    | 0.313          |
+| **Expiro**      | CNN<br>VGG    | 0.991<br>0.990  | 0.833<br>0.840   | 0.882<br>0.824 | 0.857<br>0.832 | 0.938<br>0.909 | 0.361<br>0.486    | 0.330          |
+| **Fasong**      | CNN<br>VGG    | 1.000<br>1.000  | 1.000<br>1.000   | 1.000<br>1.000 | 1.000<br>1.000 | 1.000<br>1.000 | 0.366<br>0.606    | 0.262          |
+| **HackKMS**     | CNN<br>VGG    | 1.000<br>0.999  | 1.000<br>1.000   | 1.000<br>0.980 | 1.000<br>0.990 | 1.000<br>0.990 | 0.624<br>0.722    | 0.339          |
+| **Hlux**        | CNN<br>VGG    | 1.000<br>0.996  | 1.000<br>0.893   | 1.000<br>1.000 | 1.000<br>0.943 | 1.000<br>0.998 | 0.925<br>0.952    | 0.333          |
+| **Injector**    | CNN<br>VGG    | 0.991<br>0.992  | 0.950<br>0.878   | 0.760<br>0.860 | 0.844<br>0.869 | 0.879<br>0.928 | 0.320<br>0.453    | 0.297          |
+| **InstallCore** | CNN<br>VGG    | 0.999<br>0.999  | 1.000<br>1.000   | 0.980<br>0.980 | 0.990<br>0.990 | 0.990<br>0.990 | 0.776<br>0.761    | 0.240          |
+| **MultiPlug**   | CNN<br>VGG    | 0.999<br>0.996  | 1.000<br>0.979   | 0.961<br>0.902 | 0.980<br>0.939 | 0.980<br>0.951 | 0.290<br>0.587    | 0.175          |
+| **Neoreklami**  | CNN<br>VGG    | 0.998<br>0.999  | 0.980<br>1.000   | 0.960<br>0.980 | 0.970<br>0.990 | 0.980<br>0.990 | 0.649<br>0.668    | 0.493          |
+| **Neshta**      | CNN<br>VGG    | 0.981<br>0.995  | 0.685<br>0.957   | 0.725<br>0.882 | 0.705<br>0.918 | 0.857<br>0.941 | 0.289<br>0.530    | 0.297          |
+| **Ransom**      | CNN<br>VGG    | 0.994<br>0.987  | 0.966<br>0.950   | 0.985<br>0.945 | 0.975<br>0.947 | 0.990<br>0.969 | 0.247<br>0.452    | 0.272          |
+| **Regrun**      | CNN<br>VGG    | 1.000<br>1.000  | 1.000<br>1.000   | 1.000<br>1.000 | 1.000<br>1.000 | 1.000<br>1.000 | 0.424<br>0.585    | 0.327          |
+| **Sality**      | CNN<br>VGG    | 0.978<br>0.980  | 0.683<br>0.711   | 0.549<br>0.627 | 0.609<br>0.667 | 0.770<br>0.810 | 0.280<br>0.478    | 0.272          |
+| **Snarasite**   | CNN<br>VGG    | 1.000<br>1.000  | 1.000<br>1.000   | 1.000<br>1.000 | 1.000<br>1.000 | 1.000<br>1.000 | 0.763<br>0.792    | 0.294          |
+| **Stantinko**   | CNN<br>VGG    | 0.999<br>0.999  | 1.000<br>1.000   | 0.960<br>0.980 | 0.980<br>0.990 | 0.980<br>0.990 | 0.397<br>0.657    | 0.271          |
+| **Trusted**     | CNN<br>VGG    | 0.969<br>0.966  | 0.838<br>0.817   | 0.897<br>0.897 | 0.866<br>0.855 | 0.937<br>0.936 | 0.285<br>0.470    | 0.280          |
+| **VBKrypt**     | CNN<br>VGG    | 0.999<br>0.997  | 1.000<br>0.979   | 0.980<br>0.922 | 0.990<br>0.949 | 0.990<br>0.960 | 0.383<br>0.559    | 0.396          |
+| **Vilsel**      | CNN<br>VGG    | 1.000<br>1.000  | 1.000<br>1.000   | 1.000<br>1.000 | 1.000<br>1.000 | 1.000<br>1.000 | 0.782<br>0.876    |                |
+
+![ConfusionMatrix](cm.png)
 
 ## Authors & References
 
@@ -65,6 +121,6 @@ work in progress...
 
 #### Acknowledgements
 
-The authors would like to thank the 'Trust, Security and Privacy' research group within the [Institute of Informatics and Telematics](https://www.iit.cnr.it/) (CNR - Pisa, Italy), that support their researches.
+The authors would like to thank the 'Trust, Security and Privacy' research group within the [Institute of Informatics and Telematics](https://www.iit.cnr.it/) (CNR - Pisa, Italy), that support their researches. Specifically for this paper, we thank also Iacopo Ripoli who helped in the theoretical proof and verification of the methodology.
 
 
