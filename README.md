@@ -4,7 +4,7 @@
 
 ### Tool for malware code analysis based on the paper 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps'
 
-Repository to replicate the experiments presented in 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps' by Iadarola G. et al.
+Repository to replicate the experiments presented in 'Assessing Deep Learning Prediction in Image-based Malware Detection with Activation Maps' by Iadarola G. et al. The complete experimental results are reported in the [**Experiments**](#results) section.
 
 If you are using this repository, please consider [**citing our works**](#publications) (see links at the end of this README file).
 
@@ -53,10 +53,13 @@ Tensorboard can be used to print graph of training and validation trend.
 tensorboard --logdir results/tensorboard/fit/
 ```
 ## Experimental Results
+<a name="results"></a>
 
-The methodology was tested on a dataset of 15726 malware samples, split into 25 malware family and 1 trusted class. We tested two different CNN model architectures (see `models_code` folder), and we refer to them as `CNN` and `VGG16`. The `CNN` model is lighter than the `VGG16` one, it has 6 layers instead of 16.
+The methodology was tested on a dataset of 15726 malware samples, split into 25 malware family and 1 trusted class. We tested two different CNN model architectures (see `models_code` folder), and we refer to them as `CNN` and `VGG16`. The `CNN` model is lighter than the `VGG16` one, it has only 6 layers instead of 16.
 
-### The Dataset
+We report the experimental results for the [**two DL models**](#models), and a wider comparison per [**malware family**](#families). Also, the [**confusion matrix**](#cm) with the results of the `CNN` on the test set is reported. We refer to the [**original paper**](#publications) for further information on the experiments, and the discussion of the results. 
+
+#### The Dataset
 
 The 15726 dataset samples are split into train-validation-test set, equally balanced by family samples, with a ratio of 80/10/10 of the entire dataset (respectively, 12574/1563/1589 samples). In details, the dataset contains the numbers of samples listed below:
 
@@ -90,10 +93,8 @@ The 15726 dataset samples are split into train-validation-test set, equally bala
 |Vilsel      |   396      |   49      |   51       |    496   |
 |TOTAL      |   12574      |   1563      |   1589       |    15726   |
 
-
-### The Results
-
 #### DL models results
+<a name="models"></a>
 
 | **DL model**            |    CNN    |  VGG16   |
 | :---------------------- | :-------: | :------: |
@@ -108,8 +109,9 @@ The 15726 dataset samples are split into train-validation-test set, equally bala
 | **AUC**                 |   0.989   | **0.99** |
 
 #### Malware family comparison
+<a name="families"></a>
 
-|                 | **MODELS** | **ACCURACY** | **PRECISION** | **RECALL**  | **FM**      | **AUC**     | **Intra-SSIM** | **Inter-SSIM** |
+|                 | **MODELS** | **ACCURACY** | **PRECISION** | **RECALL**  | **FM**      | **AUC**     | **Intra-family-SSIM** | **Inter-models-SSIM** |
 | :-------------- | :--------- | :----------- | :------------ | :---------- | :---------- | :---------- | :------------- | :------------- |
 | **Adposhel**    | CNN<br>VGG    | 1.000<br>0.999  | 1.000<br>0.980   | 1.000<br>1.000 | 1.000<br>0.990 | 1.000<br>1.000 | 0.503<br>0.652    | 0.387          |
 | **Agent**       | CNN<br>VGG    | 0.991<br>0.993  | 0.837<br>0.857   | 0.872<br>0.894 | 0.854<br>0.875 | 0.934<br>0.945 | 0.364<br>0.460    | 0.324          |
@@ -138,7 +140,10 @@ The 15726 dataset samples are split into train-validation-test set, equally bala
 | **VBKrypt**     | CNN<br>VGG    | 0.999<br>0.997  | 1.000<br>0.979   | 0.980<br>0.922 | 0.990<br>0.949 | 0.990<br>0.960 | 0.383<br>0.559    | 0.396          |
 | **Vilsel**      | CNN<br>VGG    | 1.000<br>1.000  | 1.000<br>1.000   | 1.000<br>1.000 | 1.000<br>1.000 | 1.000<br>1.000 | 0.782<br>0.876    | 0.199          |
 
-The confusion matrix with regard of the CNN model on the test set.
+#### Confusion Matrix
+<a name="cm"></a>
+
+The confusion matrix with regard of the `CNN` model on the test set.
 
 ![ConfusionMatrix](cm.png)
 
