@@ -15,7 +15,7 @@ This repository contains the code to strictly replicate the experiments, but it 
 
 The methodology was tested on a dataset of 15726 malware samples, split into 25 malware family and 1 trusted class. We tested two different CNN model architectures (see `models_code` folder), and we refer to them as `CNN` and `VGG16`. The `CNN` model is lighter than the `VGG16` one, it has only 6 layers instead of 16.
 
-We report the experimental results for the [**two DL models**](#models), and a wider comparison per [**malware family**](#families). Also, the [**confusion matrix**](#cm) with the results of the `CNN` on the test set is reported. We refer to the [**original paper**](#publications) for further information on the experiments, and the discussion of the results. 
+We report the experimental results for the [**two DL models**](#models), and a wider comparison per [**malware family**](#families). Also, we report the [**confusion matrix**](#cm) with the results of the `CNN` on the test set, and a [**short extract**](#ifssim) from the paper (not-published material), regarding an explanation for the IF-SSIM reduction. We refer to the [**original paper**](#publications) for further information on the experiments, and the discussion of the results. 
 
 #### The Dataset
 
@@ -69,7 +69,7 @@ The 15726 dataset samples are split into train-validation-test set, equally bala
 #### Malware family comparison
 <a name="families"></a>
 
-|                 | **MODELS** | **ACCURACY** | **PRECISION** | **RECALL**  | **FM**      | **AUC**     | **Intra-family-SSIM** | **Inter-models-SSIM** |
+|                 | **MODELS** | **ACCURACY** | **PRECISION** | **RECALL**  | **FM**      | **AUC**     | **IF-SSIM** | **IM-SSIM** |
 | :-------------- | :--------- | :----------- | :------------ | :---------- | :---------- | :---------- | :------------- | :------------- |
 | **Adposhel**    | CNN<br>VGG    | 1.000<br>0.999  | 1.000<br>0.980   | 1.000<br>1.000 | 1.000<br>0.990 | 1.000<br>1.000 | 0.503<br>0.652    | 0.387          |
 | **Agent**       | CNN<br>VGG    | 0.991<br>0.993  | 0.837<br>0.857   | 0.872<br>0.894 | 0.854<br>0.875 | 0.934<br>0.945 | 0.364<br>0.460    | 0.324          |
@@ -104,6 +104,13 @@ The 15726 dataset samples are split into train-validation-test set, equally bala
 The confusion matrix with regard of the `CNN` model on the test set.
 
 ![ConfusionMatrix](cm.png)
+
+#### Simplify IF-SSIM calculations
+<a name="ifssim"></a>
+
+The number of SSIM calculations can be cut in half by generating the 2-size Combinations of the Heatmaps set. Following, a short explanation of this improvements, from a paper extract which was not published due to the page limit.
+
+![IF-SSIM](IF-SSIM_reduction.png)
 
 ## Getting Started
 <a name="gettingstarted"></a>
